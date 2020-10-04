@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-database.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyDUxlmVyVAHl4x-NIuWbGzuGdzkpYjft8I",
+          authDomain: "quiz-app-6a3e1.firebaseapp.com",
+          databaseURL: "https://quiz-app-6a3e1.firebaseio.com",
+          projectId: "quiz-app-6a3e1",
+          storageBucket: "quiz-app-6a3e1.appspot.com",
+          messagingSenderId: "41003608045",
+          appId: "1:41003608045:web:5e1eb4ed9fd374fdc0e9e4"
+        };
+        firebase.initializeApp(firebaseConfig);
+      </script>
+</head>
+
+<body>
+    <!-- onload="checkInternetConnection()" -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12" style="height: 100vh;">
+                <div class=" quiz_main mx-auto">
+                    <div class="row ">
+                        <div class="col-12">
+                            <div class=" quiz_header ">
+                                <h1 class="pt-3" style="text-align: center;">Quiz App</h1>
+                                <h5 id="questionNum" class="pt-2 qn" style="text-align: center;">Question No <span id="quesCount"></span></h5>
+                                <div class="row" style="margin-top: 50px;">
+                                    <div class="col-6">
+                                        <p id="remainingQues" class="pl-2 qn">Remaining Questions <span id="remainingQuesCounter"></span></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p id="totalQues" class="pr-2" style="float: right;">Total Questions 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="startBtnDiv" class="start-quiz">
+                            <button id="startBtn" onclick="startQuiz()">Start Quiz</button>
+                        </div>
+                        <div id="showQuiz" class="col-12 hidden">
+
+
+
+
+                            <div class="row" style="height: 75px;">
+
+                                <div class="col-12">
+                                    <div>
+                                        <h2 id="question" class="mt-4" style="text-align: center;"> What is the full form of HTTP?</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    
+
+                                    <div class="options pt-4">
+                                        <button onclick="ans(this)" id="opt1"></button>
+                                        <button onclick="ans(this)" id="opt2"></button>
+                                        <button onclick="ans(this)" id="opt3"></button>
+                                        <button onclick="ans(this)" id="opt4"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 pr-0">
+                                    <div class="next " style="border-bottom-left-radius: 10px;">
+                                    </div>
+                                </div>
+                                <div class="col-6 pl-0">
+                                    <div class="next" style="border-bottom-right-radius: 10px;">
+                                        <button style="float: right;" onclick="nextQues(this)">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
