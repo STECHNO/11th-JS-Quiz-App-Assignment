@@ -11,7 +11,7 @@ let question1 = new Question('What does HTML stand for?', 'a. Hyper Trainer Mark
 let question2 = new Question('What dose this equation mean ? a != t', 'a. A is assigned t', 'b. A and t are equal', 'c. A is not equal to t', 'd. T is add to a', 'c. A is not equal to t')
 let question3 = new Question('Inside which HTML element do we put the JavaScript?', "a. script", "b. javascript", "c. scripting", "d. js", "a. script")
 let question4 = new Question('Which of the following type of variable takes precedence over other if names are same?', 'a. global variable', 'b. local variable', 'c. Both of the above', 'd. None of the above', 'b. local variable')
-let question5 = new Question('Which of the following function of String object returns the character at the specified index?', 'a. charAt()', 'b. charCodeAt()', 'c. concat()', 'd. indexOf()', 'a. charAt()')
+let question5 = new Question('Function of String object returns the character at the specified index?', 'a. charAt()', 'b. charCodeAt()', 'c. concat()', 'd. indexOf()', 'a. charAt()')
 
 
 
@@ -24,17 +24,17 @@ let allQuestions = {
     q5: question5
 }
 
-// let checkInternetConnection = () => {
-//     firebase.database().ref(key).child('q' + quesSeries).once('value', (data) => {
-//         if (data.val()) {
-//             // console.log('connected')
-//         } else {
-//             alert("Please Connect With Internet");
-//         }
-//     });
-// }
-
 let key = 'allQuestions'
+let checkInternetConnection = () => {
+    firebase.database().ref(key).once('value', (data) => {
+        if (data.val()) {
+            // console.log('connected')
+        } else {
+            alert("Please Connect With Internet");
+        }
+    });
+}
+
 firebase.database().ref(key).set(allQuestions)
 
 var count = 0
@@ -43,7 +43,7 @@ var remainingQuesCounter = 5
 
 let startQuiz = () => {
     document.getElementById('startBtnDiv').innerHTML = ' '
-    
+
     var spinner = document.createElement('div')
     spinner.setAttribute('class', 'loading')
     spinner.classList.add('spin');
@@ -55,7 +55,7 @@ let startQuiz = () => {
             if (data.val()) {
                 setTimeout(() => {
                     resolve(data.val())
-                }, 500)
+                }, 300)
             }
             else {
                 reject('Error Please Check Your Internet Connection.')
@@ -111,7 +111,7 @@ let updateQues = () => {
             if (data.val()) {
                 setTimeout(() => {
                     resolve(data.val())
-                }, 1000)
+                }, 300)
             }
             else {
                 reject('Error Please Check Your Internet Connection.')
@@ -145,7 +145,7 @@ userScore = 0;
 let nextQues = (finish) => {
 
     firebase.database().ref(key).child('q' + quesSeries).once('value', (data) => {
-        
+
         if (ansArr.length === 0) {
             swal("Please Choose Your Answer");
         }
@@ -200,7 +200,7 @@ let finish = () => {
             document.getElementById('totalQues').innerHTML = ' ';
             document.getElementById('remainingQues').innerHTML = ' ';
             document.getElementById('questionNum').innerHTML = ' ';
-        }, 1000)
+        }, 500)
 
     })
 }
